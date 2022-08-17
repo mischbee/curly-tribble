@@ -13,7 +13,7 @@ module.exports = (env) => {
     prev[`process.env.${next}`] = JSON.stringify(env[next]);
     return prev;
   }, {});
-
+  console.log(envKeys);
   return {
     devtool: "source-map",
     entry: "./src/index.js",
