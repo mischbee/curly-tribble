@@ -1,18 +1,20 @@
 const express = require("express");
-const path = require("path");
-const PORT = process.env.PORT || 8000;
-const bodyparser = require("body-parser");
 const app = express();
+require("dotenv").config();
 
-app.use("/static", express.static("./static/"));
-app.use(bodyparser);
+const path = require("path");
+const PORT = process.env.PORT;
+
+app.use(express.static(path.join(__dirname, "dist")));
 
 app.get("/val", (req, res) => {
+  console.log("Te123123st");
   res.json(123);
 });
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "index.html"));
+  console.log("Tessst");
+  res.sendFile(path.join(__dirname, "dist/index.html"));
 });
 
 app.post("/val", (req, res) => {});

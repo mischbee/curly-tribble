@@ -4,7 +4,8 @@ export const app = () => {
   const submitBtn = getElementById("submit-btn");
 
   async function getVal() {
-    const response = await fetch("http://localhost:8000/val");
+    console.log(process.env.API_URL);
+    const response = await fetch(process.env.API_URL);
     const parsed = await response.json();
     console.log(parsed);
   }

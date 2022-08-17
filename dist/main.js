@@ -1,0 +1,2 @@
+(()=>{"use strict";(()=>{const e=s("total"),n=s("number-input"),t=s("submit-btn");function s(e){return document.getElementById(e)}!async function(){console.log(process.env.API_URL);const e=await fetch(process.env.API_URL),n=await e.json();console.log(n)}(),t.addEventListener("click",(()=>{let t=Number.parseInt(n.value),s=Number.parseInt(e.innerText);isNaN(t)&&(t=0),isNaN(s)&&(s=0),e.innerText=s+t}))})()})();
+//# sourceMappingURL=main.js.map
