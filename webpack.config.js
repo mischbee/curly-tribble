@@ -10,7 +10,7 @@ module.exports = (env) => {
     dotEnvVariables = dotenv.config({ path: "./dev.env" }).parsed;
   }
 
-  console.log(dotEnvVariables);
+  console.log(env);
 
   const envKeys = Object.keys(env).reduce((prev, next) => {
     prev[`process.env.${next}`] = JSON.stringify(env[next]);
