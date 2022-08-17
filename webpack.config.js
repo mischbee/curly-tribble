@@ -7,9 +7,10 @@ const dotenv = require("dotenv");
 module.exports = (env) => {
   if (!env.production) {
     env = { ...env, ...dotenv.config({ path: "./dev.env" }).parsed };
+  } else {
+    env.API_URL = process.env.API_URL;
   }
 
-  env = { ...env, ...process.env };
   const envKeys = Object.keys(env).reduce((prev, next) => {
     prev[`process.env.${next}`] = JSON.stringify(env[next]);
     return prev;
