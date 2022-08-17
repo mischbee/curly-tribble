@@ -9,11 +9,12 @@ module.exports = (env) => {
     env = { ...env, ...dotenv.config({ path: "./dev.env" }).parsed };
   }
 
+  env = { ...env, ...process.env };
   const envKeys = Object.keys(env).reduce((prev, next) => {
     prev[`process.env.${next}`] = JSON.stringify(env[next]);
     return prev;
   }, {});
-  console.log(envKeys, process.env);
+
   return {
     devtool: "source-map",
     entry: "./src/index.js",
