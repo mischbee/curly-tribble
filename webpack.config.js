@@ -5,18 +5,17 @@ const dotenv = require("dotenv");
 // reduce it to a nice object, the same as before
 
 module.exports = (env) => {
-  let dotEnvVariables = dotenv.config().parsed;
+  //   let dotEnvVariables = dotenv.config().parsed;
   if (!env.production) {
     dotEnvVariables = dotenv.config({ path: "./dev.env" }).parsed;
   }
-
-  console.log(env);
 
   const envKeys = Object.keys(env).reduce((prev, next) => {
     prev[`process.env.${next}`] = JSON.stringify(env[next]);
     return prev;
   }, {});
 
+  console.log(process.env);
   return {
     devtool: "source-map",
     entry: "./src/index.js",
