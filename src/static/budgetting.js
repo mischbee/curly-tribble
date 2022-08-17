@@ -5,7 +5,7 @@ export const app = () => {
 
   async function getVal() {
     console.log(process.env.API_URL);
-    const response = await fetch(process.env.API_URL);
+    const response = await fetch(`${process.env.API_URL}/val`);
     const parsed = await response.json();
     console.log(parsed);
   }
